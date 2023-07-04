@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amanti di Roma - Contact Us</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  </head>
+  <body>
+    <header>
+      <nav>
+        <nav>
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>        
+          <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+          <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+          <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+    </header>
+
+    <main>
+      <!-- Contact Us Page -->
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="contact-form-handler.php" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
