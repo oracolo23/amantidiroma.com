@@ -14,6 +14,22 @@ body {
   margin: 100px auto auto auto;
 }
 
+.container-rooms-title{
+
+    max-width: 70%;
+    max-height: 50%;
+    margin-top: 100px;
+    margin: 100px auto auto auto;
+}
+
+@media only screen and (min-width: 1430px) {
+  .container-rooms-title {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* Navigation */
 nav {
   position: fixed;
@@ -141,10 +157,23 @@ footer {
   background-color: transparent;
 }
 
+/* Child Div */
 .child-div {
   display: flex;
   background-color: transparent;
-  border-radius: 20px;
+}
+
+@media only screen and (min-width: 1430px) {
+  .child-div {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .parent-div {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .child-div .room-image {
@@ -188,7 +217,7 @@ footer {
 
 .room-3 {
   background-color: #F2EEDD;
-  margin-bottom: 20%;
+  margin-bottom: 15%;
 }
 
 .room-3 h2,
@@ -219,13 +248,13 @@ footer {
   text-align: center;
   border-radius: 10px;
 }
-.grid-item-1{
+.grid-item-1 {
   background-color: #E8DDD3;
 }
-.grid-item-2{
+.grid-item-2 {
   background-color: #D7E8D3;
 }
-.grid-item-3{
+.grid-item-3 {
   background-color: #D3D8E8;
 }
 .grid-item h3 {
@@ -239,13 +268,22 @@ footer {
 
 /* Additional Styles */
 .cta-container {
-  width: 50%;
+
   display: flex;
   justify-content: center;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 50px;
+  
+}
+.cta-container .cta-container-right{
+  margin-right: 0;
+  margin-bottom: 0;
 }
 
+.cta-container .cta-container-left{
+  margin: auto auto 0 0;
+}
 .cta-button {
   background-color: #F4DECB;
   color: #fff;
@@ -257,12 +295,12 @@ footer {
   border-radius: 5px;
   transition: background-color 0.3s ease;
   border-radius: 20px;
+  max-width: 40%;
 }
 
 /* Room-1 Button Alignment */
 .room-1 .cta-container {
   justify-content: flex-end;
-
 }
 
 /* Room-2 Button Alignment */
@@ -270,12 +308,16 @@ footer {
   justify-content: flex-start;
 }
 
-
-.cta-button:hover {
-  background-color: #E6C9B8;
-  font-weight: 800;
+.room-3 .cta-container {
+  justify-content: flex-end;
 }
 
+/* Limit button width for room classes */
+.room .cta-button {
+  width: 40%;
+}
+
+/* Colors for Room Buttons */
 .room-1 .cta-button {
   background-color: #E8C0A4;
 }
@@ -299,9 +341,6 @@ footer {
 .room-3 .cta-button:hover {
   background-color: #BFBDA9;
 }
-
-
-
 
 /* Media Queries */
 @media only screen and (max-width: 1024px) {
