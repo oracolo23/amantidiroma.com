@@ -155,12 +155,14 @@ footer {
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
+  border-radius: 30px;
 }
 
 /* Child Div */
 .child-div {
   display: flex;
   background-color: transparent;
+  
 }
 
 @media only screen and (min-width: 1430px) {
@@ -298,6 +300,11 @@ footer {
   max-width: 40%;
 }
 
+.cta-button:hover {
+  background-color: #D4A689;
+  font-weight: 800;
+}
+
 /* Room-1 Button Alignment */
 .room-1 .cta-container {
   justify-content: flex-end;
@@ -316,6 +323,7 @@ footer {
 .room .cta-button {
   width: 40%;
 }
+
 
 /* Colors for Room Buttons */
 .room-1 .cta-button {
