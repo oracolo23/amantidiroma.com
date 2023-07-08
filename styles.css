@@ -22,6 +22,12 @@ body {
     margin: 100px auto auto auto;
 }
 
+.container-rooms-title h1{
+
+  font-size: 40px;
+}
+
+
 @media only screen and (min-width: 1430px) {
   .container-rooms-title {
     width: 1000px;
@@ -30,23 +36,69 @@ body {
   }
 }
 
-/* Navigation */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: #C6E6C3;
+  background-color: transparent;
+  padding: 5px;
+  max-height: 50px;
+}
+
+.navigation-bar {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #C6E6C3;
+  height: 50px;
   padding: 5px;
 }
 
-nav a {
+.nav-logo {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  margin-left: 50px;
+}
+
+.nav-logo .logo-container {
+  width: 100px;
+  height: auto;
+}
+
+.nav-logo .logo-container:hover {
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.nav-logo .logo {
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 70%;
+  margin-left: 30%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 5px;
+  max-height: 50px;
+}
+
+.nav-buttons a {
   font-size: 20px;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
@@ -64,8 +116,7 @@ nav a:hover {
   background-color: #fff;
   color: #C6E6C3;
   font-weight: 800;
-  transition: background-color 0.5s ease;
-  transition: color 0.5s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Media Queries */
@@ -200,7 +251,7 @@ footer {
 
 /* Colors */
 .room-1 {
-  background-color: #F2D7B6;
+  background-color: #F8E8D4;
 }
 
 .room-1 h2,
@@ -218,7 +269,7 @@ footer {
 }
 
 .room-3 {
-  background-color: #F2EEDD;
+  background-color: #F8E8D4;
   margin-bottom: 15%;
 }
 
@@ -327,11 +378,11 @@ footer {
 
 /* Colors for Room Buttons */
 .room-1 .cta-button {
-  background-color: #E8C0A4;
+  background-color: #E8D3BD;
 }
 
 .room-1 .cta-button:hover {
-  background-color: #D4A689;
+  background-color: #D4BFA9;
 }
 
 .room-2 .cta-button {
@@ -341,17 +392,16 @@ footer {
 .room-2 .cta-button:hover {
   background-color: #D4BFA9;
 }
-
 .room-3 .cta-button {
-  background-color: #D3D2BD;
+  background-color: #E8D3BD;
 }
 
 .room-3 .cta-button:hover {
-  background-color: #BFBDA9;
+  background-color: #D4BFA9;
 }
 
 /* Media Queries */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1224px) {
   .container {
     max-width: 80%;
   }
@@ -375,6 +425,10 @@ footer {
   .grid-container img {
     width: 25%;
   }
+
+  .sub-div .cta-button {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -386,9 +440,16 @@ footer {
     font-size: 28px;
   }
 
-  .sub-div p {
+
+  .sub-div .cta-button {
     font-size: 16px;
   }
+
+  .sub-div p {
+    font-size: 18px;
+  }
+
+
 
   .parent-div {
     width: 90%;
