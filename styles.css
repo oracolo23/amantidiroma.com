@@ -27,13 +27,16 @@ body {
   font-size: 40px;
 }
 
+.burger {
+  display: none;
+  cursor: pointer;
+}
 
-@media only screen and (min-width: 1430px) {
-  .container-rooms-title {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px;
 }
 
 nav {
@@ -48,7 +51,6 @@ nav {
 }
 
 .navigation-bar {
-
   position: fixed;
   top: 0;
   left: 0;
@@ -56,77 +58,81 @@ nav {
   z-index: 100;
   display: flex;
   justify-content: space-between;
+  align-items: center; /* This line is added to align items vertically in the middle */
   width: 100%;
   background-color: #C6E6C3;
   height: 50px;
-  padding: 5px;
+  padding: 10px 30px; /* Increased padding to create space on the left and right sides */
 }
 
 .nav-logo {
-  display: flex;
+  position: fixed;
+  top: 5px;
+  right: auto;
+  left: 10%;
+  width: 15%;
+  height: 100%;
   align-items: center;
-  width: 30%;
-  margin-left: 50px;
+  flex: 1; /* This line is added to take up the available space */
+  justify-content: flex-start; /* This line is added to align the logo to the left */
 }
 
 .nav-logo .logo-container {
-  width: 100px;
+  width: 100%;
   height: auto;
 }
 
-.nav-logo .logo-container:hover {
-  padding: 5px;
-  border-radius: 15px;
-}
 
 .nav-logo .logo {
   max-height: 100%;
   max-width: 100%;
   vertical-align: middle;
-
 }
 
 .nav-buttons {
+  position: fixed;
+  top: 5px;
+  right: 10%;
+  left: 30%;
+  width: auto;
+  height: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 70%;
-  margin-left: 30%;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 5px;
-  max-height: 50px;
+  justify-content: flex-end; /* This line is adjusted to align the buttons to the right */
+  align-items: end;
+  flex: 1; /* This line is added to take up the available space */
 }
 
 .nav-buttons a {
+  position: relative;
   font-size: 20px;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  padding: 10px 40px;
+  padding: 10px 5px;
+  margin:  0 40px;
   font-weight: 500;
   text-transform: uppercase;
   flex-shrink: 1;
   text-overflow: ellipsis;
-  border-radius: 20px;
   overflow: hidden;
   color: #fff;
 }
 
-nav a:hover {
+.nav-buttons a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 5px;
+  bottom: 0;
+  left: 50%;
   background-color: #fff;
-  color: #C6E6C3;
-  font-weight: 800;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: all 0.5s ease;
 }
 
-/* Media Queries */
-@media only screen and (max-width: 1440px) {
-  .container {
-    max-width: 70%;
-  }
+.nav-buttons a:hover::after {
+  width: 100%;
+  left: 0;
 }
 
-/* Rooms Description Headers and P */
 .sub-div h2 {
   font-size: 45px;
   margin-bottom: 50px;
@@ -216,18 +222,7 @@ footer {
   
 }
 
-@media only screen and (min-width: 1430px) {
-  .child-div {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .parent-div {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
+
 
 .child-div .room-image {
   flex: 1;
@@ -301,15 +296,11 @@ footer {
   text-align: center;
   border-radius: 10px;
 }
-.grid-item-1 {
-  background-color: #E8DDD3;
-}
+
 .grid-item-2 {
   background-color: #D7E8D3;
 }
-.grid-item-3 {
-  background-color: #D3D8E8;
-}
+
 .grid-item h3 {
   font-size: 24px;
   margin-bottom: 10px;
@@ -401,6 +392,46 @@ footer {
 }
 
 /* Media Queries */
+
+@media only screen and (max-width: 1440px) {
+  .container {
+    max-width: 70%;
+  }
+}
+@media only screen and (min-width: 1430px) {
+  .container-rooms-title {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+@media only screen and (min-width: 1430px) {
+  .child-div {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .parent-div {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .nav-buttons a {
+  font-size: 18px;
+  margin: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .nav-buttons a {
+  font-size: 16px;
+  margin: 0 10px;
+  }
+}
 @media only screen and (max-width: 1224px) {
   .container {
     max-width: 80%;
@@ -430,11 +461,14 @@ footer {
     font-size: 16px;
   }
 }
-
 @media only screen and (max-width: 768px) {
   .container {
     max-width: 90%;
   }
+  .nav-buttons a {
+    font-size: 13px;
+    margin: 0 4px;
+    }
 
   .sub-div h2 {
     font-size: 28px;
@@ -449,8 +483,6 @@ footer {
     font-size: 18px;
   }
 
-
-
   .parent-div {
     width: 90%;
   }
@@ -460,6 +492,27 @@ footer {
   }
 
   .grid-container img {
-    width: 35%;
+    max-width: 75px;
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .nav-buttons {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+  .nav-logo{
+
+    position: fixed;
+    width: 30%;
+    top: 5px;
+    right: 10%;
+    margin: 0 auto;
+
   }
 }
