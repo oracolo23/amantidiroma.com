@@ -87,7 +87,15 @@
       </div>
     </div>
   </div>
-  
+  <script>
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('.nav-buttons');
+
+    burger.addEventListener('click', function() {
+      nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
+  <footer>
   <footer>
     <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
   </footer>
