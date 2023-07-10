@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amanti di Roma - Contact Us</title>
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-  </head>
-  <body>
-    <header>
-    
-      <div class="navigation-bar">
-        <div class="burger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <nav class="nav-logo">
-          <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"></a>
-        </nav>
-        <nav class="nav-buttons">
-          <a href="index.html"><i class="fas fa-home"></i> Home</a>
-          <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
-          <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-          <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-        </nav>
-      </div>
-      
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanti di Roma - Contact Us</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+</head>
 
-    <main>
-      <!-- Contact Us Page -->
+<body>
+  <header>
+    <div class="navigation-bar">
 
-      <section id="contact">
-        <h2>Contact Us</h2>
+<div class="burger">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<nav class="nav-logo">
+  <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"></a>
+</nav>
+<nav class="nav-buttons">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+</nav>
+</div>
+
+</header>
 
 
-        <form name="contact" netlify>
-          <p>
-            <label>Name <input type="text" name="name" /></label>
-          </p>
-          <p>
-            <label>Email <input type="email" name="email" /></label>
-          </p>
-          <p>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-          </p>
-      
-       
-          <button type="submit">Send Message</button>
-        </form>
-      </section>
-    </main>
-    <script>
-      var burger = document.querySelector('.burger');
-      var nav = document.querySelector('.nav-buttons');
+<main>
+  <!-- Contact Us Page -->
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+
+
+    <form name="contact" netlify>
+      <p>
+        <label>Name <input type="text" name="name" /></label>
+      </p>
+      <p>
+        <label>Email <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </p>
+
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <script>
+    console.log('JavaScript code is executed.');
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.nav-buttons');
+  var clickCount = 0;
   
-      burger.addEventListener('click', function() {
-        nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
-      });
-    </script>
-    <footer>
-    <footer>
-      <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
-    </footer>
-  </body>
+  burger.addEventListener('click', function () {
+    clickCount += 1;
+    console.log('Click event is fired ' + clickCount + ' times.');
+    nav.classList.toggle('nav-active');
+  });
+  </script>
+</main>
+<footer>
+  <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
+</footer>
+</body>
+
 </html>

@@ -1,89 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amanti di Roma - Home</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <header>
-      <div class="navigation-bar">
-        <div class="burger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <nav class="nav-logo">
-          <a href="index.html" class="logo-container"
-            ><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"
-          /></a>
-        </nav>
-        <nav class="nav-buttons">
-          <a href="index.html"><i class="fas fa-home"></i> Home</a>
-          <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
-          <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-          <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanti di Roma - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
 
-    <div class="container">
-      <div class="center">
-        <h1>
-          <span
-            style="
+<body>
+  <header>
+    <div class="navigation-bar">
+
+<div class="burger">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<nav class="nav-logo">
+  <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"></a>
+</nav>
+<nav class="nav-buttons">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+</nav>
+</div>
+
+</header>
+
+<div class="container">
+  <div class="center">
+    <h1>
+      <span style="
               font-size: 40px;
               font-weight: bolder;
               text-transform: uppercase;
-            "
-            >Amanti <br />di Roma</span
-          >
-          <br />Bed &amp; Breakfast
-        </h1>
-        <p>
-          Experience the serenity of Rome's countryside and the convenience of
-          direct connections to the city center.
-        </p>
-      </div>
-    </div>
+            ">Amanti <br />di Roma</span>
+      <br />Bed &amp; Breakfast
+    </h1>
+    <p>
+      Experience the serenity of Rome's countryside and the convenience of
+      direct connections to the city center.
+    </p>
+  </div>
+</div>
 
-    <div class="cta-container">
-      <button class="cta-button">Make a Reservation</button>
-    </div>
+<div class="cta-container">
+  <button class="cta-button">Make a Reservation</button>
+</div>
 
-    <div class="grid-container">
-      <img
-        src="pics/room_4.jpg"
-        alt="Placeholder Image 1"
-        class="grid-item grid-item-2"
-      />
-      <img
-        src="pics/room_1.jpg"
-        alt="Placeholder Image 2"
-        class="grid-item grid-item-2"
-      />
-      <img
-        src="pics/room_3.jpg"
-        alt="Placeholder Image 3"
-        class="grid-item grid-item-2"
-      />
-    </div>
-    <script>
-      var burger = document.querySelector(".burger");
-      var nav = document.querySelector(".nav-buttons");
+<div class="grid-container">
+  <img src="pics/room_4.jpg" alt="Placeholder Image 1" class="grid-item grid-item-2" />
+  <img src="pics/room_1.jpg" alt="Placeholder Image 2" class="grid-item grid-item-2" />
+  <img src="pics/room_3.jpg" alt="Placeholder Image 3" class="grid-item grid-item-2" />
+</div>
+<script>
+  console.log('JavaScript code is executed.');
+var burger = document.querySelector('.burger');
+var nav = document.querySelector('.nav-buttons');
+var clickCount = 0;
 
-      burger.addEventListener("click", function () {
-        nav.style.display = nav.style.display === "none" ? "block" : "none";
-      });
-    </script>
-    <footer>
-      <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
-    </footer>
-  </body>
-</html>
+burger.addEventListener('click', function () {
+  clickCount += 1;
+  console.log('Click event is fired ' + clickCount + ' times.');
+  nav.classList.toggle('nav-active');
+});
+</script>
+<footer>
+  <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
+</footer>
+</body>

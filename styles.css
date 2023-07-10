@@ -90,19 +90,27 @@ nav {
 }
 
 .nav-buttons {
+  display: flex;
+  flex-direction: row;
   position: fixed;
-  top: 5px;
+  height: auto;  /* Adjust to your preference */
+  width: 70%;  /* Adjust to your preference */
+  top: 0;
   right: 10%;
   left: 30%;
-  width: auto;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end; /* This line is adjusted to align the buttons to the right */
-  align-items: end;
-  flex: 1; /* This line is added to take up the available space */
+  padding: 10px;
+  transform: translateX(0%);
+  transition: transform 0.3s ease-in-out;
+  overflow: visible;
+  justify-content: center; 
+  align-items: center;
 }
 
+
 .nav-buttons a {
+  display: inline-block;
+  margin: 0;
+
   position: relative;
   font-size: 20px;
   font-family: "Poppins", sans-serif;
@@ -421,6 +429,9 @@ footer {
 }
 @media only screen and (max-width: 1300px) {
   .nav-buttons a {
+  display: inline-block;
+  margin: 0;
+
   font-size: 18px;
   margin: 0 20px;
   }
@@ -428,6 +439,9 @@ footer {
 
 @media only screen and (max-width: 1000px) {
   .nav-buttons a {
+  display: inline-block;
+  margin: 0;
+
   font-size: 16px;
   margin: 0 10px;
   }
@@ -466,6 +480,9 @@ footer {
     max-width: 90%;
   }
   .nav-buttons a {
+  display: inline-block;
+  margin: 0;
+
     font-size: 13px;
     margin: 0 4px;
     }
@@ -498,21 +515,76 @@ footer {
 
 
 
+
 @media screen and (max-width: 600px) {
   .nav-buttons {
-    display: none;
-  }
-
-  .burger {
-    display: block;
-  }
-  .nav-logo{
-
-    position: fixed;
-    width: 30%;
-    top: 5px;
-    right: 10%;
-    margin: 0 auto;
-
-  }
+  flex-direction: row;
+  background-color: #C6E6C3;
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 10px 0;
+  margin: 0 auto;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
 }
+
+.nav-buttons a{
+  margin: 0 20px;
+  padding: 5px;  
+
+
+}
+
+/* Grid  Styles */
+
+.nav-buttons.nav-active {
+  flex-direction: row;
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 0 10px 0;
+  background-color: #C6E6C3;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-active a {
+  display: block;
+  overflow:visible;
+  margin: 0 20px;
+  padding: 5px;
+
+}
+
+.container {
+margin-top: 170px;
+
+}
+
+.burger {
+  display: block;
+}
+.nav-logo{
+  position: fixed;
+  width: 30%;
+  top: 5px;
+  right: 10%;
+  margin: 0 auto;
+}
+}
+
+
+
+/* Add a CSS rule to show the sidebar and stack the buttons vertically when the burger menu is clicked */
+

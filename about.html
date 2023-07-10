@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amanti di Roma - About Us</title>
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-  </head>
-  <body>
-    <header>
-        
-      <div class="navigation-bar">
-        <div class="burger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <nav class="nav-logo">
-          <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"></a>
-        </nav>
-        <nav class="nav-buttons">
-          <a href="index.html"><i class="fas fa-home"></i> Home</a>
-          <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
-          <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-          <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-        </nav>
-      </div>
-      
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanti di Roma - About Us</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="navigation-bar">
+
+<div class="burger">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<nav class="nav-logo">
+  <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"></a>
+</nav>
+<nav class="nav-buttons">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+</nav>
+</div>
+
+</header>
 
 
-    <main>
-      <!-- About Us Page -->
-      <section id="about">
-        <!-- About Us section content here -->
-        <h2>About Us</h2>
-        <p>
-          Welcome to our hotel! We pride ourselves on providing exceptional
-          hospitality and creating memorable experiences for our guests.
-        </p>
-        <p>
-          Our hotel is located in a prime location, offering stunning views and
-          easy access to popular attractions and amenities. Whether you're here
-          for business or leisure, we have everything you need to make your stay
-          comfortable and enjoyable.
-        </p>
-        <p>
-          Our dedicated team of staff is committed to delivering outstanding
-          service and ensuring your needs are met during your time with us. From
-          the moment you arrive until the time of your departure, we strive to
-          exceed your expectations and provide a personalized experience.
-        </p>
-        <p>
-          At our hotel, we understand the importance of quality and comfort. Our
-          rooms are designed with your utmost relaxation in mind, featuring
-          modern amenities and stylish decor. Indulge in our delicious dining
-          options, unwind in our spa and fitness facilities, or simply take in
-          the breathtaking views from our rooftop terrace.
-        </p>
-        <p>
-          Whether you're planning a family vacation, a romantic getaway, or a
-          business trip, we have the perfect accommodations and services to suit
-          your needs. Experience the true meaning of hospitality at our hotel,
-          where every guest is treated like family.
-        </p>
-      </section>
-    </main>
-    <script>
-      var burger = document.querySelector('.burger');
-      var nav = document.querySelector('.nav-buttons');
-  
-      burger.addEventListener('click', function() {
-        nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
-      });
-    </script>
-    <footer>
-    <footer>
-      <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
-    </footer>
-  </body>
+<main>
+  <!-- About Us Page -->
+  <section id="about">
+    <!-- About Us section content here -->
+    <h2>About Us</h2>
+    <p>
+      Welcome to our hotel! We pride ourselves on providing exceptional
+      hospitality and creating memorable experiences for our guests.
+    </p>
+    <p>
+      Our hotel is located in a prime location, offering stunning views and
+      easy access to popular attractions and amenities. Whether you're here
+      for business or leisure, we have everything you need to make your stay
+      comfortable and enjoyable.
+    </p>
+    <p>
+      Our dedicated team of staff is committed to delivering outstanding
+      service and ensuring your needs are met during your time with us. From
+      the moment you arrive until the time of your departure, we strive to
+      exceed your expectations and provide a personalized experience.
+    </p>
+    <p>
+      At our hotel, we understand the importance of quality and comfort. Our
+      rooms are designed with your utmost relaxation in mind, featuring
+      modern amenities and stylish decor. Indulge in our delicious dining
+      options, unwind in our spa and fitness facilities, or simply take in
+      the breathtaking views from our rooftop terrace.
+    </p>
+    <p>
+      Whether you're planning a family vacation, a romantic getaway, or a
+      business trip, we have the perfect accommodations and services to suit
+      your needs. Experience the true meaning of hospitality at our hotel,
+      where every guest is treated like family.
+    </p>
+  </section>
+</main>
+<script>
+  console.log('JavaScript code is executed.');
+var burger = document.querySelector('.burger');
+var nav = document.querySelector('.nav-buttons');
+var clickCount = 0;
+
+burger.addEventListener('click', function () {
+  clickCount += 1;
+  console.log('Click event is fired ' + clickCount + ' times.');
+  nav.classList.toggle('nav-active');
+});
+</script>
+
+<footer>
+  <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
+</footer>
+</body>
+
 </html>
