@@ -517,6 +517,46 @@ footer {
 
 
 @media screen and (max-width: 600px) {
+
+  .nav-buttons.nav-active {
+    flex-direction: row;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 20px 0 10px 0;
+    background-color: #C6E6C3;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .nav-active a {
+    display: block;
+    overflow:visible;
+    margin: 0 10px;
+    padding: 5px;
+  
+  }
+  
+  .container {
+  margin-top: 170px;
+  
+  }
+  
+  .burger {
+    display: block;
+  }
+  .nav-logo{
+    position: fixed;
+    width: 30%;
+    top: 5px;
+    right: 10%;
+    margin: 0 auto;
+  }
+  
   .nav-buttons {
   flex-direction: row;
   background-color: #C6E6C3;
@@ -540,49 +580,41 @@ footer {
   padding: 5px;  
 
 
+  }
+}
+@media screen and (max-width: 500px) {
+  .nav-buttons a{
+    margin: 0 10px;
+    padding: 5px;  
+  
+  
+  }
+
+  .cta-container .cta-button{
+font-size: 13px;
+
+  }
 }
 
+
+
+@media screen and (max-width: 450px) {
+  .nav-buttons a{
+    font-size: 11px;
+    margin: 0 5px ;
+  
+  }
+  .nav-buttons.nav-active a{
+    font-size: 11px;
+    margin: 0 5px ;
+
+
+  }
+
+}
 /* Grid  Styles */
 
-.nav-buttons.nav-active {
-  flex-direction: row;
-  position: fixed;
-  top: 70px;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  padding: 20px 0 10px 0;
-  background-color: #C6E6C3;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(0);
-  transition: transform 0.3s ease-in-out;
-}
 
-.nav-active a {
-  display: block;
-  overflow:visible;
-  margin: 0 20px;
-  padding: 5px;
-
-}
-
-.container {
-margin-top: 170px;
-
-}
-
-.burger {
-  display: block;
-}
-.nav-logo{
-  position: fixed;
-  width: 30%;
-  top: 5px;
-  right: 10%;
-  margin: 0 auto;
-}
-}
 
 
 
