@@ -581,6 +581,12 @@ footer {
 
 
   }
+  .nav-buttons a::after {
+    display: none;
+  }
+  .nav-buttons a:hover::after {
+    display: none;
+  }
 }
 @media screen and (max-width: 500px) {
   .nav-buttons a{
@@ -612,11 +618,3 @@ font-size: 13px;
   }
 
 }
-/* Grid  Styles */
-
-
-
-
-
-/* Add a CSS rule to show the sidebar and stack the buttons vertically when the burger menu is clicked */
-
