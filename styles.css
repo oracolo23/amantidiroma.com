@@ -355,6 +355,10 @@ footer {
   font-weight: 800;
 }
 
+.room-container {
+  margin: 0 auto;
+  width: 90%;
+}
 /* Room-1 Button Alignment */
 .room-1 .cta-container {
   justify-content: flex-end;
@@ -514,8 +518,6 @@ footer {
 }
 
 
-
-
 @media screen and (max-width: 600px) {
 
   .nav-buttons.nav-active {
@@ -545,7 +547,52 @@ footer {
   margin-top: 170px;
   
   }
+  .container-rooms-title {
+    margin-top: 170px;
+    
+  }
+  .room-container {
+    padding-bottom: 50px;
+  }
   
+
+    
+  .child-div .room-description{
+    width: auto;
+    padding: 0 20px 10px;
+  }
+  .child-div .room-description h2{
+    font-size: 24px;
+    margin: 0 auto 30px ;
+    
+  }
+
+  .child-div .room-image{
+    margin: 30px auto 20px;
+  }
+
+  .child-div .room-image img {
+    max-width: 70%;
+    max-height: 70%;
+    border-radius: 30px;
+  }
+  
+  .room-1 .cta-container {
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .room-2 .cta-container {
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .room-3 .cta-container {
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .room-2 .child-div {
+    flex-direction: column-reverse;
+  }
+
   .burger {
     display: block;
   }
@@ -587,7 +634,15 @@ footer {
   .nav-buttons a:hover::after {
     display: none;
   }
+  
+  .footer p {
+    font-size: 13px;
+
+  }
 }
+
+
+
 @media screen and (max-width: 500px) {
   .nav-buttons a{
     margin: 0 10px;
@@ -618,3 +673,17 @@ font-size: 13px;
   }
 
 }
+@media screen and (max-width: 600px) {
+  .child-div {
+    flex-direction: column;
+  }
+  .room-image, .room-description {
+    width: 100%;
+  }
+  .room-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
