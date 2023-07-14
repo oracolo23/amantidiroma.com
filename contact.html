@@ -31,29 +31,42 @@
 </div>
 
 </header>
-
+<div class="container-contact-title">
+  <h1>Contact Us</h1>
+  <h3>Please fill the form below:</h3>
+</div>
 
 <main>
   <!-- Contact Us Page -->
 
   <section id="contact">
-    <h2>Contact Us</h2>
+    
 
 
-    <form name="contact" netlify>
+    <form name="contact" class="form-container" netlify>
       <p>
-        <label>Name <input type="text" name="name" /></label>
+        <label>Name: <input type="text" name="name" /></label>
       </p>
       <p>
-        <label>Email <input type="email" name="email" /></label>
+        <label>Surname: <input type="text" name="surname" /></label>
       </p>
+      <p>
+        <label>Email Address: <input type="email" name="email" /></label>
+      </p>
+      <label for="dropdown">Reason for Contact</label>
+      <select id="dropdown" required>
+          <option value="">Choose one</option>
+          <option value="Make a Reservation">Reservation Request</option>
+          <option value="Modify a Reservation">Modify a Reservation</option>
+          <option value="Cancel a Reservation">Cancel a Reservation</option>
+      </select>
       <p>
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="4" required></textarea>
       </p>
 
 
-      <button type="submit">Send Message</button>
+      <button type="submit" class="cta-button">Send Message</button>
     </form>
   </section>
   <script>
