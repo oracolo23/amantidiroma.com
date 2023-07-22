@@ -13,6 +13,12 @@
             const num_guests = document.getElementById('num_guests').value;
             const start_date = document.getElementById('start_date').value;
             const end_date = document.getElementById('end_date').value;
+            const email = document.getElementById('email').value;
+            let phone_prefix = document.getElementById('phone_prefix').value;
+            if (phone_prefix === 'other') {
+                phone_prefix = document.getElementById('other_prefix').value;
+            }
+            const phone_number = document.getElementById('phone_number').value;
 
             // Prepare data to send
             const data = {
@@ -21,7 +27,10 @@
                 holder_surname,
                 num_guests,
                 start_date,
-                end_date
+                end_date,
+                email,
+                phone_prefix,
+                phone_number
             };
 
             // Send POST request
@@ -44,6 +53,14 @@
                 console.error('Error:', error);
             });
         }
+
+        function showOther(value) {
+            if (value === 'other') {
+                document.getElementById('otherPrefix').style.display = 'block';
+            } else {
+                document.getElementById('otherPrefix').style.display = 'none';
+            }
+        }
     </script>
 </head>
 <body>
@@ -61,6 +78,23 @@
         <input type="date" id="start_date" name="start_date"><br>
         <label for="end_date">End Date:</label><br>
         <input type="date" id="end_date" name="end_date"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="phone_prefix">Phone Prefix:</label><br>
+        <select id="phone_prefix" name="phone_prefix" onchange="showOther(this.value)">
+            <option value="+1">+1 (United States & Canada)</option>
+            <option value="+44">+44 (United Kingdom)</option>
+            <option value="+39">+39 (Italy)</option>
+            <option value="+33">+33 (France)</option>
+            <option value="+49">+49 (Germany)</option>
+            <option value="other">Other</option>
+        </select>
+        <div id="otherPrefix" style="display:none;">
+            <label for="other_prefix">Enter your prefix:</label>
+            <input type="text" id="other_prefix" name="other_prefix">
+        </div>
+        <label for="phone_number">Phone Number:</label><br>
+        <input type="text" id="phone_number" name="phone_number"><br>
         <input type="submit" value="Submit">
     </form>
 </body>
