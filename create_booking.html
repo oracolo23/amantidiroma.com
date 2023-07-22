@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Request Your Booking</title>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            // Get form values
+            const room_id = document.getElementById('room_id').value;
+            const holder_name = document.getElementById('holder_name').value;
+            const holder_surname = document.getElementById('holder_surname').value;
+            const num_guests = document.getElementById('num_guests').value;
+            const start_date = document.getElementById('start_date').value;
+            const end_date = document.getElementById('end_date').value;
+
+            // Prepare data to send
+            const data = {
+                room_id,
+                holder_name,
+                holder_surname,
+                num_guests,
+                start_date,
+                end_date
+            };
+
+            // Send POST request
+            fetch('/api/bookings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Booking successful! Your booking ID is ${data.booking_id}`);
+                } else {
+                    alert(`Booking failed: ${data.error}`);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Request Your Booking</h1>
+    <form onsubmit="submitForm(event)">
+        <label for="room_id">Room ID:</label><br>
+        <input type="text" id="room_id" name="room_id"><br>
+        <label for="holder_name">Name:</label><br>
+        <input type="text" id="holder_name" name="holder_name"><br>
+        <label for="holder_surname">Surname:</label><br>
+        <input type="text" id="holder_surname" name="holder_surname"><br>
+        <label for="num_guests">Number of Guests:</label><br>
+        <input type="number" id="num_guests" name="num_guests"><br>
+        <label for="start_date">Start Date:</label><br>
+        <input type="date" id="start_date" name="start_date"><br>
+        <label for="end_date">End Date:</label><br>
+        <input type="date" id="end_date" name="end_date"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
