@@ -4,55 +4,57 @@
     <title>Request Your Booking</title>
     <script>
         function submitForm(event) {
-            event.preventDefault();
+    event.preventDefault();
 
-            // Get form values
-            const room_id = document.getElementById('room_id').value;
-            const holder_name = document.getElementById('holder_name').value;
-            const holder_surname = document.getElementById('holder_surname').value;
-            const num_guests = document.getElementById('num_guests').value;
-            const start_date = document.getElementById('start_date').value;
-            const end_date = document.getElementById('end_date').value;
-            const email = document.getElementById('email').value;
-            let phone_prefix = document.getElementById('phone_prefix').value;
-            if (phone_prefix === 'other') {
-                phone_prefix = document.getElementById('other_prefix').value;
-            }
-            const phone_number = document.getElementById('phone_number').value;
+    // Get form values
+    const room_id = document.getElementById('room_id').value;
+    const holder_name = document.getElementById('holder_name').value;
+    const holder_surname = document.getElementById('holder_surname').value;
+    const num_guests = document.getElementById('num_guests').value;
+    const start_date = document.getElementById('start_date').value;
+    const end_date = document.getElementById('end_date').value;
+    const email = document.getElementById('email').value;
+    let phone_prefix = document.getElementById('phone_prefix').value;
+    const phone_number = document.getElementById('phone_number').value;
 
-            // Prepare data to send
-            const data = {
-                room_id,
-                holder_name,
-                holder_surname,
-                num_guests,
-                start_date,
-                end_date,
-                email,
-                phone_prefix,
-                phone_number
-            };
+    if (phone_prefix === 'other') {
+        phone_prefix = document.getElementById('other_prefix').value;
+    }
 
-            // Send POST request
-            fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert(`Booking successful! Your booking ID is ${data.booking_id}`);
-                } else {
-                    alert(`Booking failed: ${data.error}`);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+    // Prepare data to send
+    const data = {
+        room_id,
+        holder_name,
+        holder_surname,
+        num_guests,
+        start_date,
+        end_date,
+        email,
+        phone_prefix,
+        phone_number
+    };
+
+    // Send POST request
+    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(`Booking successful! Your booking ID is ${data.booking_id}`);
+        } else {
+            alert(`Booking failed: ${data.error}`);
         }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 
         function showOther(value) {
             if (value === 'other') {
