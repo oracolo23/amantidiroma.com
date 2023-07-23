@@ -4,6 +4,32 @@
     <title>Request Your Booking</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
+
+    window.onload = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:5000/api/rooms');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var select = document.getElementById('room-id');
+                data.rooms.forEach(function(room) {
+                    var option = document.createElement('option');
+                    option.text = room.room_id;
+                    option.value = room.room_id;
+                    select.add(option);
+                });
+            }
+            else {
+                alert('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+        xhr.send();
+    };
+
+
+
+
+
         function submitForm(event) {
     event.preventDefault();
 
@@ -73,7 +99,16 @@
             <h1>Request Your Booking</h1>
             <form onsubmit="submitForm(event)">
                 <label for="room_id">Room ID:</label><br>
-                <input type="text" id="room_id" name="room_id"><br>
+
+                <select id="room_id" name="room_id">
+                    <option value="1">1</option>
+                    <option value="3">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <select id="room-id" name="room_id">
+                </select>
+                <br>
                 <label for="holder_name">Name:</label><br>
                 <input type="text" id="holder_name" name="holder_name"><br>
                 <label for="holder_surname">Surname:</label><br>
