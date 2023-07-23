@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Request Your Booking</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
         function submitForm(event) {
     event.preventDefault();
@@ -67,41 +68,42 @@
 </head>
 
 <body>
-
-    <h1>Request Your Booking</h1>
-    <form onsubmit="submitForm(event)">
-        <label for="room_id">Room ID:</label><br>
-        <input type="text" id="room_id" name="room_id"><br>
-        <label for="holder_name">Name:</label><br>
-        <input type="text" id="holder_name" name="holder_name"><br>
-        <label for="holder_surname">Surname:</label><br>
-        <input type="text" id="holder_surname" name="holder_surname"><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br>
-        <label for="phone_prefix">Phone Prefix:</label><br>
-        <select id="phone_prefix" name="phone_prefix" onchange="showOther(this.value)">
-            <option value="+1">+1 (United States & Canada)</option>
-            <option value="+44">+44 (United Kingdom)</option>
-            <option value="+39">+39 (Italy)</option>
-            <option value="+33">+33 (France)</option>
-            <option value="+49">+49 (Germany)</option>
-            <option value="other">Other</option>
-        </select>
-        <div id="otherPrefix" style="display:none;">
-            <label for="other_prefix">Enter your prefix:</label>
-            <input type="text" id="other_prefix" name="other_prefix">
-        </div><br>
-        <label for="phone_number">Phone Number:</label><br>
-        <input type="text" id="phone_number" name="phone_number"><br>
-        <label for="num_guests">Number of Guests:</label><br>
-        <input type="number" id="num_guests" name="num_guests"><br>
-        <label for="start_date">Start Date:</label><br>
-        <input type="date" id="start_date" name="start_date"><br>
-        <label for="end_date">End Date:</label><br>
-        <input type="date" id="end_date" name="end_date"><br>
-
-        <input type="submit" value="Submit">
-        
-    </form>
+    <div class="container">
+        <div class="form-container">
+            <h1>Request Your Booking</h1>
+            <form onsubmit="submitForm(event)">
+                <label for="room_id">Room ID:</label><br>
+                <input type="text" id="room_id" name="room_id"><br>
+                <label for="holder_name">Name:</label><br>
+                <input type="text" id="holder_name" name="holder_name"><br>
+                <label for="holder_surname">Surname:</label><br>
+                <input type="text" id="holder_surname" name="holder_surname"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="phone_prefix">Phone Prefix:</label><br>
+                <select id="phone_prefix" name="phone_prefix" onchange="showOther(this.value)">
+                    <option value="+1">+1 (United States & Canada)</option>
+                    <option value="+44">+44 (United Kingdom)</option>
+                    <option value="+39">+39 (Italy)</option>
+                    <option value="+33">+33 (France)</option>
+                    <option value="+49">+49 (Germany)</option>
+                    <option value="other">Other</option>
+                </select>
+                <div id="otherPrefix" style="display:none;">
+                    <label for="other_prefix">Enter your prefix:</label>
+                    <input type="text" id="other_prefix" name="other_prefix">
+                </div><br>
+                <label for="phone_number">Phone Number:</label><br>
+                <input type="text" id="phone_number" name="phone_number"><br>
+                <label for="num_guests">Number of Guests:</label><br>
+                <input type="number" id="num_guests" name="num_guests"><br>
+                <label for="start_date">Start Date:</label><br>
+                <input type="date" id="start_date" name="start_date"><br>
+                <label for="end_date">End Date:</label><br>
+                <input type="date" id="end_date" name="end_date"><br>
+                <button class="cta-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
