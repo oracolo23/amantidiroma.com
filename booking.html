@@ -6,15 +6,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-<script>
-  var booking = JSON.parse(sessionStorage.getItem('booking'));
-  var bookingDetailsDiv = document.getElementById('booking-details');
-  bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + booking.id + '</p>' +
-                                '<p>Room ID: ' + booking.room_id + '</p>' +
-                                '<p>Start Date: ' + booking.start_date + '</p>' +
-                                '<p>End Date: ' + booking.end_date + '</p>' +
-                                '<p>Request Status: ' + booking.request_status + '</p>';
-</script>
+
 <body>
   <header>
     <div class="navigation-bar">
@@ -40,6 +32,15 @@
     <h1>Booking Details</h1>
     <div id="booking-details"></div>
   </div>
+  <script>
+    var booking = JSON.parse(sessionStorage.getItem('booking'));
+    var bookingDetailsDiv = document.getElementById('booking-details');
+    bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + booking.id + '</p>' +
+                                  '<p>Room ID: ' + booking.room_id + '</p>' +
+                                  '<p>Start Date: ' + booking.start_date + '</p>' +
+                                  '<p>End Date: ' + booking.end_date + '</p>' +
+                                  '<p>Request Status: ' + booking.request_status + '</p>';
+  </script>
   <script>
     console.log('JavaScript code is executed.');
     var burger = document.querySelector('.burger');
