@@ -14,8 +14,8 @@
                 var select = document.getElementById('room-id');
                 data.rooms.forEach(function(room) {
                     var option = document.createElement('option');
-                    option.text = room.room_id;
-                    option.value = room.room_id;
+                    option.text = room;
+                    option.value = room;
                     select.add(option);
                 });
             }
@@ -25,6 +25,7 @@
         };
         xhr.send();
     };
+
 
 
 
