@@ -5,26 +5,31 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
 
-    window.onload = function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://bookings-management-app-837eb876f572.herokuapp.com/api/rooms');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var data = JSON.parse(xhr.responseText);
-                var select = document.getElementById('room_id');  // Changed 'room-id' to 'room_id'
-                data.rooms.forEach(function(room) {
-                    var option = document.createElement('option');
-                    option.text = room;
-                    option.value = room;
-                    select.add(option);
-                });
-            }
-            else {
-                alert('Request failed.  Returned status of ' + xhr.status);
-            }
-        };
-        xhr.send();
+window.onload = function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://bookings-management-app-837eb876f572.herokuapp.com/api/rooms');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+
+            // Log the data to the console
+            console.log(data);
+
+            var select = document.getElementById('room_id');
+            data.rooms.forEach(function(room) {
+                var option = document.createElement('option');
+                option.text = room;
+                option.value = room;
+                select.add(option);
+            });
+        }
+        else {
+            alert('Request failed.  Returned status of ' + xhr.status);
+        }
     };
+    xhr.send();
+};
+
 
 
 
