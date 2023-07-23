@@ -11,7 +11,7 @@
         xhr.onload = function() {
             if (xhr.status === 200) {
                 var data = JSON.parse(xhr.responseText);
-                var select = document.getElementById('room-id');
+                var select = document.getElementById('room_id');
                 data.rooms.forEach(function(room) {
                     var option = document.createElement('option');
                     option.text = room;
@@ -101,7 +101,7 @@
             <form onsubmit="submitForm(event)">
                 <label for="room_id">Room ID:</label><br>
 
-                <select id="room-id" name="room_id">
+                <select id="room_id" name="room_id">
                 </select>
                 <br>
                 <label for="holder_name">Name:</label><br>
