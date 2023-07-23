@@ -42,4 +42,19 @@
         </div>
     </div>
 </body>
+<script>
+  console.log('JavaScript code is executed.');
+var burger = document.querySelector('.burger');
+var nav = document.querySelector('.nav-buttons');
+var clickCount = 0;
+
+burger.addEventListener('click', function () {
+  clickCount += 1;
+  console.log('Click event is fired ' + clickCount + ' times.');
+  nav.classList.toggle('nav-active');
+});
+</script>
+<footer>
+  <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
+</footer>
 </html>

@@ -1,81 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Request Your Booking</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script>
+        console.log('JavaScript code is executed.');
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('.nav-buttons');
+        var clickCount = 0;
 
-window.onload = function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://bookings-management-app-837eb876f572.herokuapp.com/api/rooms');
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            var select = document.getElementById('room_id');
-            data.room_ids.forEach(function(room) { // Changed 'rooms' to 'room_ids'
-                var option = document.createElement('option');
-                option.text = room;
-                option.value = room;
-                select.add(option);
-            });
-        }
-        else {
-            alert('Request failed.  Returned status of ' + xhr.status);
-        }
-    };
-    xhr.send();
-};
+        burger.addEventListener('click', function () {
+            clickCount += 1;
+            console.log('Click event is fired ' + clickCount + ' times.');
+            nav.classList.toggle('nav-active');
+        });
+
+
+        window.onload = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://bookings-management-app-837eb876f572.herokuapp.com/api/rooms');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var select = document.getElementById('room_id');
+                    data.room_ids.forEach(function (room) { // Changed 'rooms' to 'room_ids'
+                        var option = document.createElement('option');
+                        option.text = room;
+                        option.value = room;
+                        select.add(option);
+                    });
+                }
+                else {
+                    alert('Request failed.  Returned status of ' + xhr.status);
+                }
+            };
+            xhr.send();
+        };
         function submitForm(event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    // Get form values
-    const room_id = document.getElementById('room_id').value;
-    const holder_name = document.getElementById('holder_name').value;
-    const holder_surname = document.getElementById('holder_surname').value;
-    const num_guests = document.getElementById('num_guests').value;
-    const start_date = document.getElementById('start_date').value;
-    const end_date = document.getElementById('end_date').value;
-    const email = document.getElementById('email').value;
-    let phone_prefix = document.getElementById('phone_prefix').value;
-    const phone_number = document.getElementById('phone_number').value;
+            // Get form values
+            const room_id = document.getElementById('room_id').value;
+            const holder_name = document.getElementById('holder_name').value;
+            const holder_surname = document.getElementById('holder_surname').value;
+            const num_guests = document.getElementById('num_guests').value;
+            const start_date = document.getElementById('start_date').value;
+            const end_date = document.getElementById('end_date').value;
+            const email = document.getElementById('email').value;
+            let phone_prefix = document.getElementById('phone_prefix').value;
+            const phone_number = document.getElementById('phone_number').value;
 
-    if (phone_prefix === 'other') {
-        phone_prefix = document.getElementById('other_prefix').value;
-    }
+            if (phone_prefix === 'other') {
+                phone_prefix = document.getElementById('other_prefix').value;
+            }
 
-    // Prepare data to send
-    const data = {
-        room_id,
-        holder_name,
-        holder_surname,
-        num_guests,
-        start_date,
-        end_date,
-        email,
-        phone_prefix,
-        phone_number
-    };
+            // Prepare data to send
+            const data = {
+                room_id,
+                holder_name,
+                holder_surname,
+                num_guests,
+                start_date,
+                end_date,
+                email,
+                phone_prefix,
+                phone_number
+            };
 
-    // Send POST request
-    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(`Booking successful! Your booking ID is ${data.booking_id}`);
-        } else {
-            alert(`Booking failed: ${data.error}`);
+            // Send POST request
+            fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(`Booking successful! Your booking ID is ${data.booking_id}`);
+                    } else {
+                        alert(`Booking failed: ${data.error}`);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-}
 
 
         function showOther(value) {
@@ -91,24 +104,25 @@ window.onload = function() {
 <body>
     <header>
         <div class="navigation-bar">
-    
-    <div class="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <nav class="nav-logo">
-      <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"></a>
-    </nav>
-    <nav class="nav-buttons">
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="bookings.html"><i class="far fa-calendar-check"></i> Bookings</a> 
-    </nav>
-    </div>
-    
+
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav class="nav-logo">
+                <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo"
+                        class="logo"></a>
+            </nav>
+            <nav class="nav-buttons">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="bookings.html"><i class="far fa-calendar-check"></i> Bookings</a>
+            </nav>
+        </div>
+
     </header>
     <div class="container">
         <div class="form-container">
@@ -149,8 +163,8 @@ window.onload = function() {
                     <option value="5">5</option>
                     <option value="Other">Other</option>
                 </select>
-                
-                
+
+
                 <br>
                 <label for="start_date">Start Date:</label><br>
                 <input type="date" id="start_date" name="start_date"><br>
@@ -161,4 +175,7 @@ window.onload = function() {
         </div>
     </div>
 </body>
+<footer>
+    <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
+  </footer>
 </html>
