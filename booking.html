@@ -6,7 +6,15 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-
+<script>
+  var booking = JSON.parse(sessionStorage.getItem('booking'));
+  var bookingDetailsDiv = document.getElementById('booking-details');
+  bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + booking.id + '</p>' +
+                                '<p>Room ID: ' + booking.room_id + '</p>' +
+                                '<p>Start Date: ' + booking.start_date + '</p>' +
+                                '<p>End Date: ' + booking.end_date + '</p>' +
+                                '<p>Request Status: ' + booking.request_status + '</p>';
+</script>
 <body>
   <header>
     <div class="navigation-bar">
@@ -29,20 +37,8 @@
     </div>
   </header>
   <div class="container">
-    <h1>Bookings</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Create New Booking Request</h2>
-        <p><a href="create_booking.html" class="btn btn-primary">Create Booking</a></p>
-      </div>
-      <div class="col-md-6">
-        <h2>Check Existing Request</h2>
-        <form id="check-booking-form">
-          <input type="text" id="booking-id-input" placeholder="Enter Booking ID" required>
-          <input type="submit" value="Check Booking" class="btn btn-primary">
-        </form>
-      </div>
-    </div>
+    <h1>Booking Details</h1>
+    <div id="booking-details"></div>
   </div>
   <script>
     console.log('JavaScript code is executed.');
@@ -56,21 +52,7 @@
       nav.classList.toggle('nav-active');
     });
 
-    document.getElementById('check-booking-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      var bookingId = document.getElementById('booking-id-input').value;
-      fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
-        .then(response => response.json())
-        .then(data => {
-          sessionStorage.setItem('booking', JSON.stringify(data));
-          window.location.href = 'booking.html';
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Failed to check booking. Please try again.');
-        });
-    });
-
+    
   </script>
   <footer>
     <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
