@@ -11,12 +11,8 @@ window.onload = function() {
     xhr.onload = function() {
         if (xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
-
-            // Log the data to the console
-            console.log(data);
-
             var select = document.getElementById('room_id');
-            data.rooms.forEach(function(room) {
+            data.room_ids.forEach(function(room) { // Changed 'rooms' to 'room_ids'
                 var option = document.createElement('option');
                 option.text = room;
                 option.value = room;
@@ -29,6 +25,7 @@ window.onload = function() {
     };
     xhr.send();
 };
+
 
 
 
