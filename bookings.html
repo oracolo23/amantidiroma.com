@@ -62,20 +62,31 @@
       nav.classList.toggle('nav-active');
     });
 
-    document.getElementById('check-booking-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      var bookingId = document.getElementById('booking-id-input').value;
-      fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
-        .then(response => response.json())
-        .then(data => {
-          sessionStorage.setItem('booking', JSON.stringify(data));
-          window.location.href = 'booking.html';
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Failed to check booking. Please try again.');
-        });
+    document.getElementById('create-booking-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    // Collect form data, for example:
+    var name = document.getElementById('name-input').value;
+    var date = document.getElementById('date-input').value;
+    // Create new booking by sending a POST request to the API.
+    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({name: name, date: date}),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Booking Successful! Your booking ID is ' + data.id);
+        // Store new booking data in sessionStorage and redirect to booking.html.
+        sessionStorage.setItem('booking', JSON.stringify(data));
+        window.location.href = 'booking.html';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to create booking. Please try again.');
     });
+});
 
   </script>
   <footer>
