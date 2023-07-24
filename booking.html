@@ -7,6 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <script>
+    var booking = JSON.parse(sessionStorage.getItem('booking'));
+    var bookingId = booking.booking_id;
+
+    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
+        .then(response => response.json())
+        .then(data => {
+            var bookingDetailsDiv = document.getElementById('booking-details');
+            bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + data.booking_id + '</p>' +
+                                          '<p>Room ID: ' + data.room_id + '</p>' +
+                                          '<p>Start Date: ' + data.start_date + '</p>' +
+                                          '<p>End Date: ' + data.end_date + '</p>' +
+                                          '<p>Request Status: ' + data.status + '</p>';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+</script>
 </head>
 
 <body>
@@ -34,25 +53,8 @@
     <h1>Booking Details</h1>
     <div id="booking-details"></div>
   </div>
-  <script>
-    var bookingId = sessionStorage.getItem('booking_id');
+  
 
-    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data); // This will log the response data to the browser console
-
-            var bookingDetailsDiv = document.getElementById('booking-details');
-            bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + data.booking_id + '</p>' +
-                                          '<p>Room ID: ' + data.room_id + '</p>' +
-                                          '<p>Start Date: ' + data.start_date + '</p>' +
-                                          '<p>End Date: ' + data.end_date + '</p>' +
-                                          '<p>Request Status: ' + data.status + '</p>';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-  </script>
   <script>
     var burger = document.querySelector('.burger');
     var nav = document.querySelector('.nav-buttons');
