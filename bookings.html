@@ -62,19 +62,20 @@
     });
 
     document.getElementById('check-booking-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      var bookingId = document.getElementById('booking-id-input').value;
-      fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
+    event.preventDefault();
+    var bookingId = document.getElementById('booking-id-input').value;
+    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
         .then(response => response.json())
         .then(data => {
-          sessionStorage.setItem('booking', JSON.stringify(data));
-          window.location.href = 'booking.html';
+            sessionStorage.setItem('booking_id', data.id);
+            window.location.href = 'booking.html';
         })
         .catch(error => {
-          console.error('Error:', error);
-          alert('Failed to check booking. Please try again.');
+            console.error('Error:', error);
+            alert('Failed to check booking. Please try again.');
         });
 });
+
 
   </script>
   <footer>
