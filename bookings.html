@@ -36,7 +36,7 @@
   <div class="parent-div">
     <div class="child-div-bookings">
       <div class="booking-container">
-        <h2>New   Booking   Request</h2>
+        <h2>New Booking Request</h2>
         <p><a href="create_booking.html" class="cta-button">Create Booking</a></p>
       </div>
     </div>
@@ -60,44 +60,46 @@
       console.log('Click event is fired ' + clickCount + ' times.');
       nav.classList.toggle('nav-active');
     });
+    var bookingIdInput = document.getElementById('booking-id-input');
+
+    bookingIdInput.addEventListener('input', function () {
+      if (this.value.length > 8) {
+        this.value = this.value.slice(0, 8);  // Trim the value to the maximum length
+        this.classList.add('max-length-reached');  // Add the CSS class
+      } else {
+        this.classList.remove('max-length-reached');  // Remove the CSS class
+      }
+    });
 
     document.getElementById('check-booking-form').addEventListener('submit', function (event) {
       event.preventDefault();
       var bookingId = document.getElementById('booking-id-input').value;
       var regex = /^[a-z0-9]{1,8}$/i;
 
-    // Validate the bookingId before sending the request
-    if (!regex.test(bookingId)) {
+      // Validate the bookingId before sending the request
+      if (!regex.test(bookingId)) {
         alert('Invalid booking ID. Please enter the correct ID from the confirmation email.');
         return;
-    }
+      }
       fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Booking not found');
-            }
-            return response.json();
+          if (!response.ok) {
+            throw new Error('Booking not found');
+          }
+          return response.json();
         })
         .then(data => {
-            sessionStorage.setItem('booking_id', data.id);
-            window.location.href = 'booking.html';
+          sessionStorage.setItem('booking_id', data.id);
+          window.location.href = 'booking.html';
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to check booking. Please try again.');
+          console.error('Error:', error);
+          alert('Failed to check booking. Please try again.');
         });
 
-        var bookingIdInput = document.getElementById('booking-id-input');
 
-bookingIdInput.addEventListener('input', function () {
-    if (this.value.length > 8) {
-        this.value = this.value.slice(0, 8);  // Trim the value to the maximum length
-        this.classList.add('max-length-reached');  // Add the CSS class
-    } else {
-        this.classList.remove('max-length-reached');  // Remove the CSS class
-    }
     });
-</script>
+  </script>
 
   <footer>
     <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
