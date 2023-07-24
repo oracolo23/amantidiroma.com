@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <title>Bookings</title>
   <meta charset="UTF-8">
@@ -11,27 +8,6 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
-
-<body>
-  <!-- rest of your HTML code -->
-  
-  <script>
-    var bookingId = sessionStorage.getItem('booking_id');
-
-    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
-        .then(response => response.json())
-        .then(data => {
-            var bookingDetailsDiv = document.getElementById('booking-details');
-            bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + data.booking_id + '</p>' +
-                                          '<p>Room ID: ' + data.room_id + '</p>' +
-                                          '<p>Start Date: ' + data.start_date + '</p>' +
-                                          '<p>End Date: ' + data.end_date + '</p>' +
-                                          '<p>Request Status: ' + data.status + '</p>';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-  </script>
 
 <body>
   <header>
@@ -59,13 +35,21 @@
     <div id="booking-details"></div>
   </div>
   <script>
-    var booking = JSON.parse(sessionStorage.getItem('booking'));
-    var bookingDetailsDiv = document.getElementById('booking-details');
-    bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + booking.id + '</p>' +
-                                  '<p>Room ID: ' + booking.room_id + '</p>' +
-                                  '<p>Start Date: ' + booking.start_date + '</p>' +
-                                  '<p>End Date: ' + booking.end_date + '</p>' +
-                                  '<p>Request Status: ' + booking.status + '</p>';
+    var bookingId = sessionStorage.getItem('booking_id');
+
+    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
+        .then(response => response.json())
+        .then(data => {
+            var bookingDetailsDiv = document.getElementById('booking-details');
+            bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + data.booking_id + '</p>' +
+                                          '<p>Room ID: ' + data.room_id + '</p>' +
+                                          '<p>Start Date: ' + data.start_date + '</p>' +
+                                          '<p>End Date: ' + data.end_date + '</p>' +
+                                          '<p>Request Status: ' + data.status + '</p>';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
   </script>
   <script>
     console.log('JavaScript code is executed.');
@@ -78,8 +62,6 @@
       console.log('Click event is fired ' + clickCount + ' times.');
       nav.classList.toggle('nav-active');
     });
-
-    
   </script>
   <footer>
     <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
