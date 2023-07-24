@@ -8,86 +8,62 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script>
-        window.onload = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://bookings-management-app-837eb876f572.herokuapp.com/api/rooms');
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    var data = JSON.parse(xhr.responseText);
-                    var select = document.getElementById('room_id');
-                    data.room_ids.forEach(function (room) { // Changed 'rooms' to 'room_ids'
-                        var option = document.createElement('option');
-                        option.text = room;
-                        option.value = room;
-                        select.add(option);
-                    });
-                }
-                else {
-                    alert('Request failed.  Returned status of ' + xhr.status);
-                }
-            };
-            xhr.send();
-        };
-        function submitForm(event) {
-            event.preventDefault();
 
-            // Get form values
-            const room_id = document.getElementById('room_id').value;
-            const holder_name = document.getElementById('holder_name').value;
-            const holder_surname = document.getElementById('holder_surname').value;
-            const num_guests = document.getElementById('num_guests').value;
-            const start_date = document.getElementById('start_date').value;
-            const end_date = document.getElementById('end_date').value;
-            const email = document.getElementById('email').value;
-            let phone_prefix = document.getElementById('phone_prefix').value;
-            const phone_number = document.getElementById('phone_number').value;
+function submitForm(event) {
+    event.preventDefault();
 
-            if (phone_prefix === 'other') {
-                phone_prefix = document.getElementById('other_prefix').value;
-            }
+    // Get form values
+    const room_id = document.getElementById('room_id').value;
+    const holder_name = document.getElementById('holder_name').value;
+    const holder_surname = document.getElementById('holder_surname').value;
+    const num_guests = document.getElementById('num_guests').value;
+    const start_date = document.getElementById('start_date').value;
+    const end_date = document.getElementById('end_date').value;
+    const email = document.getElementById('email').value;
+    let phone_prefix = document.getElementById('phone_prefix').value;
+    const phone_number = document.getElementById('phone_number').value;
 
-            // Prepare data to send
-            const data = {
-                room_id,
-                holder_name,
-                holder_surname,
-                num_guests,
-                start_date,
-                end_date,
-                email,
-                phone_prefix,
-                phone_number
-            };
+    if (phone_prefix === 'other') {
+        phone_prefix = document.getElementById('other_prefix').value;
+    }
 
-            // Send POST request
-            fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert(`Booking successful! Your booking ID is ${data.booking_id}`);
-                    } else {
-                        alert(`Booking failed: ${data.error}`);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        }
+    // Prepare data to send
+    const data = {
+        room_id,
+        holder_name,
+        holder_surname,
+        num_guests,
+        start_date,
+        end_date,
+        email,
+        phone_prefix,
+        phone_number
+    };
 
-
-        function showOther(value) {
-            if (value === 'other') {
-                document.getElementById('otherPrefix').style.display = 'block';
+    // Send POST request
+    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(`Booking successful! Your booking ID is ${data.booking_id}`);
+                // Store new booking data in sessionStorage and redirect to booking.html.
+                sessionStorage.setItem('booking', JSON.stringify(data));
+                window.location.href = 'booking.html';
             } else {
-                document.getElementById('otherPrefix').style.display = 'none';
+                alert(`Booking failed: ${data.error}`);
             }
-        }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
     </script>
 </head>
 
@@ -167,17 +143,18 @@
 </body>
 <script>
     console.log('JavaScript code is executed.');
-  var burger = document.querySelector('.burger');
-  var nav = document.querySelector('.nav-buttons');
-  var clickCount = 0;
-  
-  burger.addEventListener('click', function () {
-    clickCount += 1;
-    console.log('Click event is fired ' + clickCount + ' times.');
-    nav.classList.toggle('nav-active');
-  });
-  </script>
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('.nav-buttons');
+    var clickCount = 0;
+
+    burger.addEventListener('click', function () {
+        clickCount += 1;
+        console.log('Click event is fired ' + clickCount + ' times.');
+        nav.classList.toggle('nav-active');
+    });
+</script>
 <footer>
     <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
-  </footer>
+</footer>
+
 </html>
