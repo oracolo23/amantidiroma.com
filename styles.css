@@ -767,11 +767,11 @@ footer {
 
 @media screen and (max-width: 450px) {
   .nav-buttons a {
-    font-size: 11px;
+    font-size: 10px;
     margin: 0 5px;
   }
   .nav-buttons.nav-active a {
-    font-size: 11px;
+    font-size: 10px;
     margin: 0 5px;
   }
 }
