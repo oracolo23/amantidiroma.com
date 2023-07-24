@@ -64,6 +64,13 @@
     document.getElementById('check-booking-form').addEventListener('submit', function (event) {
       event.preventDefault();
       var bookingId = document.getElementById('booking-id-input').value;
+      var regex = /^[a-z0-9]{1,8}$/i;
+
+    // Validate the bookingId before sending the request
+    if (!regex.test(bookingId)) {
+        alert('Invalid booking ID. Please enter the correct ID from the confirmation email.');
+        return;
+    }
       fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
         .then(response => {
             if (!response.ok) {
