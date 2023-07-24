@@ -51,9 +51,9 @@ function submitForm(event) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert(`Booking successful! Your booking ID is ${data.booking_id}`);
+                alert(`Booking successful! Your booking ID is ${data.id}`);
                 // Store new booking data in sessionStorage and redirect to booking.html.
-                sessionStorage.setItem('booking', JSON.stringify(data));
+                sessionStorage.setItem('booking_id', data.id);
                 window.location.href = 'booking.html';
             } else {
                 alert(`Booking failed: ${data.error}`);
