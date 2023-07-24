@@ -64,6 +64,27 @@ function submitForm(event) {
         });
 }
 
+window.onload = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://bookings-management-app-837eb876f572.herokuapp.com/api/rooms');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var select = document.getElementById('room_id');
+                    data.room_ids.forEach(function (room) { // Changed 'rooms' to 'room_ids'
+                        var option = document.createElement('option');
+                        option.text = room;
+                        option.value = room;
+                        select.add(option);
+                    });
+                }
+                else {
+                    alert('Request failed.  Returned status of ' + xhr.status);
+                }
+            };
+            xhr.send();
+        };
+
     </script>
 </head>
 
