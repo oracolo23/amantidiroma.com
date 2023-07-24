@@ -39,8 +39,14 @@ body {
   width: 50%;
   max-width: 1000px;
 }
+.container-rooms-title h1{
+  font-size: 3em;
+}
 
-.container-rooms-title h1,
+.container-rooms-title h3{
+  font-size: 1.5em;
+}
+
 .container-contact-title h1,
 .container-bookings-title {
   font-size: 2em;
@@ -163,7 +169,7 @@ nav {
 }
 
 .sub-div h2 {
-  font-size: 3em;
+  font-size: 2em;
   margin-bottom: 50px;
 }
 
