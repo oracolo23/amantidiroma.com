@@ -15,7 +15,7 @@
         .then(response => response.json())
         .then(data => {
             var bookingDetailsDiv = document.getElementById('booking-details');
-            bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + data.booking_id + '</p>' +
+            bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + data.id + '</p>' +
                                           '<p>Room ID: ' + data.room_id + '</p>' +
                                           '<p>Start Date: ' + data.start_date + '</p>' +
                                           '<p>End Date: ' + data.end_date + '</p>' +
