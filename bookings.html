@@ -51,7 +51,7 @@
     </div>
   </div>
   <script>
-        var burger = document.querySelector('.burger');
+    var burger = document.querySelector('.burger');
     var nav = document.querySelector('.nav-buttons');
     var clickCount = 0;
 
@@ -62,10 +62,15 @@
     });
 
     document.getElementById('check-booking-form').addEventListener('submit', function (event) {
-    event.preventDefault();
-    var bookingId = document.getElementById('booking-id-input').value;
-    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
-        .then(response => response.json())
+      event.preventDefault();
+      var bookingId = document.getElementById('booking-id-input').value;
+      fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Booking not found');
+            }
+            return response.json();
+        })
         .then(data => {
             sessionStorage.setItem('booking_id', data.id);
             window.location.href = 'booking.html';
@@ -74,10 +79,9 @@
             console.error('Error:', error);
             alert('Failed to check booking. Please try again.');
         });
-});
+    });
+</script>
 
-
-  </script>
   <footer>
     <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
   </footer>
