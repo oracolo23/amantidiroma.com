@@ -40,6 +40,8 @@
     fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings/' + bookingId)
         .then(response => response.json())
         .then(data => {
+          console.log(data); // This will log the response data to the browser console
+
             var bookingDetailsDiv = document.getElementById('booking-details');
             bookingDetailsDiv.innerHTML = '<p>Booking ID: ' + data.booking_id + '</p>' +
                                           '<p>Room ID: ' + data.room_id + '</p>' +
@@ -52,7 +54,6 @@
         });
   </script>
   <script>
-    console.log('JavaScript code is executed.');
     var burger = document.querySelector('.burger');
     var nav = document.querySelector('.nav-buttons');
     var clickCount = 0;
