@@ -48,6 +48,15 @@ font-size: 1.5em;
   font-family: 'Poppins', sans-serif; /* Set font to Poppins */
 }
 
+.booking-details-container {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
 .form-container input, .form-container select {
   border-width: 2px;
   margin-bottom: 20px;
@@ -517,11 +526,13 @@ footer {
   .booking-container h2 {
     font-size: 1.5em; /* adjust as needed */
   }
+  
 }
 @media only screen and (min-width: 1440px) {
   .container-rooms-title {
     margin-left: auto;
     margin-right: auto;
+    max-width: 1000px;
   }
   .container-bookings-title h1   {
     font-size: 3em; /* adjust as needed */
@@ -531,7 +542,7 @@ footer {
   }
 
   .child-div {
-    width: 1000px;
+
     margin-left: auto;
     margin-right: auto;
   }
