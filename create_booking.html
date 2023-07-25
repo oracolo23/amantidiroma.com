@@ -9,62 +9,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script>
 
-function submitForm(event) {
-    event.preventDefault();
+        function submitForm(event) {
+            event.preventDefault();
 
-    // Get form values
-    const room_id = document.getElementById('room_id').value;
-    const holder_name = document.getElementById('holder_name').value;
-    const holder_surname = document.getElementById('holder_surname').value;
-    const num_guests = document.getElementById('num_guests').value;
-    const start_date = document.getElementById('start_date').value;
-    const end_date = document.getElementById('end_date').value;
-    const email = document.getElementById('email').value;
-    let phone_prefix = document.getElementById('phone_prefix').value;
-    const phone_number = document.getElementById('phone_number').value;
+            // Get form values
+            const room_id = document.getElementById('room_id').value;
+            const holder_name = document.getElementById('holder_name').value;
+            const holder_surname = document.getElementById('holder_surname').value;
+            const num_guests = document.getElementById('num_guests').value;
+            const start_date = document.getElementById('start_date').value;
+            const end_date = document.getElementById('end_date').value;
+            const email = document.getElementById('email').value;
+            let phone_prefix = document.getElementById('phone_prefix').value;
+            const phone_number = document.getElementById('phone_number').value;
 
-    if (phone_prefix === 'other') {
-        phone_prefix = document.getElementById('other_prefix').value;
-    }
-
-    // Prepare data to send
-    const data = {
-        room_id,
-        holder_name,
-        holder_surname,
-        num_guests,
-        start_date,
-        end_date,
-        email,
-        phone_prefix,
-        phone_number
-    };
-
-    // Send POST request
-    fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(`Booking successful! Your booking ID is ${data.booking_id}`);
-                // Store new booking data in sessionStorage and redirect to booking.html.
-                sessionStorage.setItem('booking_id', data.booking_id);
-                window.location.href = 'booking.html';
-            } else {
-                alert(`Booking failed: ${data.error}`);
+            if (phone_prefix === 'other') {
+                phone_prefix = document.getElementById('other_prefix').value;
             }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
 
-window.onload = function () {
+            // Prepare data to send
+            const data = {
+                room_id,
+                holder_name,
+                holder_surname,
+                num_guests,
+                start_date,
+                end_date,
+                email,
+                phone_prefix,
+                phone_number
+            };
+
+            // Send POST request
+            fetch('https://bookings-management-app-837eb876f572.herokuapp.com/api/bookings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(`Booking successful! Your booking ID is ${data.booking_id}`);
+                        // Store new booking data in sessionStorage and redirect to booking.html.
+                        sessionStorage.setItem('booking_id', data.booking_id);
+                        window.location.href = 'booking.html';
+                    } else {
+                        alert(`Booking failed: ${data.error}`);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+        window.onload = function () {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'https://bookings-management-app-837eb876f572.herokuapp.com/api/rooms');
             xhr.onload = function () {
@@ -111,59 +111,66 @@ window.onload = function () {
         </div>
 
     </header>
-    <div class="container">
-        <div class="form-container">
-            <h1>Request Your Booking</h1>
-            <form onsubmit="submitForm(event)">
-                <label for="room_id">Room ID:</label><br>
+    <div class="container-bookings-title">
+        <h1>Request Your Booking</h1>
+      </div>
+       
+            <div class="parent-div">
+                <div class="form-container" id="request-booking-container">
+                   
+                    <form onsubmit="submitForm(event)">
 
-                <select id="room_id" name="room_id">
-                </select>
-                <br>
-                <label for="holder_name">Name:</label><br>
-                <input type="text" id="holder_name" name="holder_name"><br>
-                <label for="holder_surname">Surname:</label><br>
-                <input type="text" id="holder_surname" name="holder_surname"><br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email"><br>
-                <label for="phone_prefix">Phone Prefix:</label><br>
-                <select id="phone_prefix" name="phone_prefix" onchange="showOther(this.value)">
-                    <option value="+1">+1 (United States & Canada)</option>
-                    <option value="+44">+44 (United Kingdom)</option>
-                    <option value="+39">+39 (Italy)</option>
-                    <option value="+33">+33 (France)</option>
-                    <option value="+49">+49 (Germany)</option>
-                    <option value="other">Other</option>
-                </select>
-                <div id="otherPrefix" style="display:none;">
-                    <label for="other_prefix">Enter your prefix:</label>
-                    <input type="text" id="other_prefix" name="other_prefix">
-                </div><br>
-                <label for="phone_number">Phone Number:</label><br>
-                <input type="text" id="phone_number" name="phone_number"><br>
-                <label for="num_guests">Number of Guests:</label><br>
-                <select id="num_guests" name="num_guests">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="Other">Other</option>
-                </select>
+                        <label for="room_id">Room ID:</label><br>
+                        <select id="room_id" name="room_id">
+                        </select>
+                        <br>
+                        <label for="holder_name">Name:</label><br>
+                        <input type="text" id="holder_name" name="holder_name"><br>
+                        <label for="holder_surname">Surname:</label><br>
+                        <input type="text" id="holder_surname" name="holder_surname"><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email"><br>
+                        <label for="phone_prefix">Phone Prefix:</label><br>
+                        <select id="phone_prefix" name="phone_prefix" onchange="showOther(this.value)">
+                            <option value="+1">+1 (United States & Canada)</option>
+                            <option value="+44">+44 (United Kingdom)</option>
+                            <option value="+39">+39 (Italy)</option>
+                            <option value="+33">+33 (France)</option>
+                            <option value="+49">+49 (Germany)</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div id="otherPrefix" style="display:none;">
+                            <label for="other_prefix">Enter your prefix:</label>
+                            <input type="text" id="other_prefix" name="other_prefix">
+                        </div><br>
+                        <label for="phone_number">Phone Number:</label><br>
+                        <input type="text" id="phone_number" name="phone_number"><br>
+                        <label for="num_guests">Number of Guests:</label><br>
+                        <select id="num_guests" name="num_guests">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="Other">Other</option>
+                        </select>
 
 
-                <br>
-                <label for="start_date">Start Date:</label><br>
-                <input type="date" id="start_date" name="start_date"><br>
-                <label for="end_date">End Date:</label><br>
-                <input type="date" id="end_date" name="end_date"><br>
-                <button class="cta-button" type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
+                        <br>
+                        <label for="start_date">Start Date:</label><br>
+                        <input type="date" id="start_date" name="start_date"><br>
+                        <label for="end_date">End Date:</label><br>
+                        <input type="date" id="end_date" name="end_date"><br>
+                        <button class="cta-button" type="submit">Submit</button>
+                    </form>
+                    </form>
+                </div>
+            </div>
+
+
 </body>
 <script>
-        var burger = document.querySelector('.burger');
+    var burger = document.querySelector('.burger');
     var nav = document.querySelector('.nav-buttons');
     var clickCount = 0;
 

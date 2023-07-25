@@ -20,6 +20,44 @@ body {
   margin: 100px auto auto auto;
   width: 60%;
 }
+#request-booking-container{
+  width: 80%;
+  max-width: 1000px;
+  background-color: #f8e8d4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem auto;
+  margin-bottom: 20%;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+}
+.container-bookings-title h3 {
+font-size: 1.5em;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+
+  color: black; /* Set color to black */
+  font-size: 1.2em; /* Set font size larger */
+  font-family: 'Poppins', sans-serif; /* Set font to Poppins */
+}
+
+.form-container input, .form-container select {
+  border-width: 2px;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em; /* Set font size larger */
+  font-family: 'Poppins', sans-serif; /* Set font to Poppins */
+}
 
 .container-contact-title {
   max-height: 50%;
@@ -43,12 +81,12 @@ body {
   font-size: 3em;
 }
 
-.container-rooms-title h3{
-  font-size: 1.5em;
+.container-rooms-title h2{
+  font-size: 2em;
 }
 
 .container-contact-title h1,
-.container-bookings-title {
+.container-bookings-title h1 {
   font-size: 2em;
 }
 
@@ -138,13 +176,12 @@ nav {
 .nav-buttons a {
   display: inline-block;
   margin: 0;
-
   position: relative;
-  font-size: 1.125em;
+  font-size: 1.1em;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
   padding: 10px 5px;
-  margin: 0 40px;
+  margin: 0 30px;
   font-weight: 500;
   text-transform: uppercase;
   flex-shrink: 1;
@@ -266,7 +303,7 @@ footer {
   padding: 20px;
 }
 
-
+.child-div-contact,
 .child-div-bookings{
   width: 80%;
   max-width: 1000px;
@@ -282,10 +319,20 @@ footer {
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+.child-div-contact textarea{
+
+}
+
 .child-div-bookings p, 
 .child-div-bookings button {
   margin-top: 2em;;
 }
+.cta-container a {
+  text-decoration: none;
+  
+ }
+
 .child-div-bookings a {
  text-decoration: none;
  
@@ -457,21 +504,26 @@ footer {
   .booking-container {
     max-width: 90%;
   }
-  .container-bookings-title h1,
+  .container-bookings-title h1   {
+    font-size: 3em; /* adjust as needed */
+  }
   .booking-container h2 {
-    font-size: 2em; /* adjust as needed */
+    font-size: 1.5em; /* adjust as needed */
   }
 }
-@media only screen and (min-width: 1430px) {
+@media only screen and (min-width: 1440px) {
   .container-rooms-title {
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
   }
-  .container-bookings-title h1,
+  .container-bookings-title h1   {
+    font-size: 3em; /* adjust as needed */
+  }
   .booking-container h2 {
     font-size: 2em; /* adjust as needed */
   }
+
   .child-div {
     width: 1000px;
     margin-left: auto;
@@ -481,14 +533,15 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
+  .nav-buttons a {
+    font-size: 1.05em;
+  }
 }
 
 @media only screen and (max-width: 1300px) {
   .nav-buttons a {
-    display: inline-block;
     margin: 0;
-
-    font-size: 1.125em;
+    font-size: 1em;
     margin: 0 20px;
   }
 }
@@ -521,11 +574,16 @@ footer {
 
 @media only screen and (max-width: 1000px) {
 
-  container-bookings-title h1,
-  .booking-container h2 {
-    font-size: 1.8em; /* Adjust as needed */
+  .container-bookings-title h1   {
+    font-size: 2.5em; /* adjust as needed */
   }
-
+  .booking-container h2 {
+    font-size: 1.8em; /* adjust as needed */
+  }
+  .form-container input, .form-container select {
+    font-size: 0.9em; /* Decrease font size */
+    padding: 5px; /* Decrease padding */
+}
   .child-div-bookings {
     max-width: 90%;
    
@@ -566,20 +624,25 @@ footer {
   .form-container {
     width: 90%;
     margin: auto;
+    
   }
-  .container-bookings-title h1,
-  .booking-container h2 {
-    font-size: 1.8em; /* adjust as needed */
-  }
+
   .booking-container {
     max-width: 95%;
   }
 }
-
+@media only screen and (max-width: 850px) {
+  .nav-buttons a {
+    font-size: 0.8em;
+    margin: 0 4px;
+  }
+}
 @media only screen and (max-width: 768px) {
-  .container-bookings-title h1,
+  .container-bookings-title h1   {
+    font-size: 2em; /* adjust as needed */
+  }
   .booking-container h2 {
-    font-size: 1.6em; /* Adjust as needed */
+    font-size: 1.5em; /* adjust as needed */
   }
 
   .child-div-bookings {
@@ -598,9 +661,8 @@ footer {
     max-width: 90%;
   }
   .nav-buttons a {
-    display: inline-block;
     margin: 0;
-    font-size: 0.8125em;
+    font-size: 0.8em;
     margin: 0 4px;
   }
 
@@ -644,24 +706,27 @@ footer {
     margin-top: 170px;
   }
 
-  /* This is the submit button in the form. Adjust the font-size and padding as needed */
 
   .form-container .cta-button {
     font-size: 0.875em;
   }
-  .container-bookings-title h1,
-  .booking-container h2 {
-    font-size: 1.6em; /* adjust as needed */
-  }
+ 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 620px) {
   /* Resize text and container for screens with a max width of 600px */
-  .container-bookings-title h1,
-  .booking-container h2 {
-    font-size: 1.4em; /* Adjust as needed */
+  .nav-buttons a {
+    margin: 0;
+    font-size: 0.8em;
   }
-
+  
+  .booking-container h2 {
+    font-size: 1.1em; /* adjust as needed */
+  }
+  .form-container input, .form-container select {
+    font-size: 0.8em; /* Decrease font size */
+    padding: 5px; /* Decrease padding */
+}
   .child-div-bookings {
     max-width: 70%;
   }
@@ -820,10 +885,7 @@ footer {
     width: 80%;
   }
 
-  .container-bookings-title h1,
-  .booking-container h2 {
-    font-size: 1.4em; /* adjust as needed */
-  }
+  
   .booking-container {
     max-width: 100%;
   }
@@ -841,10 +903,7 @@ footer {
 }
 
 @media screen and (max-width: 450px) {
-  .container-bookings-title h1,
-  .booking-container h2 {
-    font-size: 1em; /* Adjust as needed */
-  }
+
 
   .child-div-bookings {
     max-width: 70%;
@@ -864,8 +923,5 @@ footer {
     font-size: 0.55em;
     margin: 0 5px;
   }
-  .container-bookings-title h1,
-  .booking-container h2 {
-    font-size: 1em; /* adjust as needed */
-  }
+  
 }
