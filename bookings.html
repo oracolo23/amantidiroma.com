@@ -64,7 +64,7 @@
     var bookingIdInput = document.getElementById('booking-id-input');
 
     bookingIdInput.addEventListener('input', function () {
-      if (this.value.length > 8) {
+      if (this.value.length > 9) {
         this.value = this.value.slice(0, 8);  // Trim the value to the maximum length
         this.classList.add('max-length-reached');  // Add the CSS class
       } else {
