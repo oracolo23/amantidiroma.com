@@ -439,6 +439,7 @@ color: #ff6b6b;
   border-radius: 5px;
   border: 1px solid #ddd;
   max-width: 60%;
+  text-transform: uppercase;
 }
 .booking-container input[type="submit"] {
   width: 100%;
@@ -474,6 +475,7 @@ color: #ff6b6b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 #booking-id-input.max-length-reached {
+  outline: none;
   border-color: red;
 }
 
