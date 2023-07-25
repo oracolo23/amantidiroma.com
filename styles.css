@@ -44,19 +44,22 @@ font-size: 1.5em;
   display: block;
   margin-bottom: 5px;
   color: black; /* Set color to black */
-  font-size: 1.2em; /* Set font size larger */
+  font-size: 1.5em; /* Set font size larger */
   font-family: 'Poppins', sans-serif; /* Set font to Poppins */
 }
 
 .form-container input, .form-container select {
   border-width: 2px;
   margin-bottom: 20px;
-  width: 100%;
-  max-width: 20em;
+  width: 90%;
   padding: 10px;
   border-radius: 5px;
   font-size: 1em; /* Set font size larger */
   font-family: 'Poppins', sans-serif; /* Set font to Poppins */
+}
+.form-container textarea{
+  width: 90%;
+  height: 20em;
 }
 
 .container-contact-title {
@@ -87,7 +90,7 @@ font-size: 1.5em;
 
 .container-contact-title h1,
 .container-bookings-title h1 {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 #booking-id-input.max-length-reached {
@@ -320,11 +323,6 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.child-div-contact textarea{
-  min-width: 300px;
-  max-width: fit-content;
-
-}
 
 .child-div-bookings p, 
 .child-div-bookings button {
