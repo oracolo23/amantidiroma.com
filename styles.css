@@ -43,7 +43,6 @@ font-size: 1.5em;
 .form-container label {
   display: block;
   margin-bottom: 5px;
-
   color: black; /* Set color to black */
   font-size: 1.2em; /* Set font size larger */
   font-family: 'Poppins', sans-serif; /* Set font to Poppins */
@@ -53,6 +52,7 @@ font-size: 1.5em;
   border-width: 2px;
   margin-bottom: 20px;
   width: 100%;
+  max-width: 20em;
   padding: 10px;
   border-radius: 5px;
   font-size: 1em; /* Set font size larger */
@@ -321,6 +321,8 @@ footer {
 }
 
 .child-div-contact textarea{
+  min-width: 300px;
+  max-width: fit-content;
 
 }
 
