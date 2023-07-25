@@ -18,7 +18,7 @@ body {
   max-height: 50%;
   margin-top: 100px;
   margin: 100px auto auto auto;
-  width: 60%;
+  width: 70%;
 }
 #request-booking-container{
   width: 80%;
@@ -65,8 +65,9 @@ font-size: 1.5em;
 .container-contact-title {
   max-height: 50%;
   margin: 100px auto auto auto;
-  width: 60%;
-  max-width: 530px;
+  width: 80%;
+  color: black;
+  max-width: 1000px;
 }
 
 .container-contact-title h1 {
@@ -77,8 +78,9 @@ font-size: 1.5em;
   max-height: 50%;
   margin-top: 100px;
   margin: 100px auto auto auto;
-  width: 50%;
+  width: 80%;
   max-width: 1000px;
+  color:black
 }
 .container-rooms-title h1{
   font-size: 3em;
@@ -348,6 +350,11 @@ footer {
   text-decoration: none;
 }
 /* Colors */
+.room-1,
+.room-2,
+.room-3{
+  max-width: 1000px;
+}
 .room-1 {
   background-color: #f8e8d4;
 }
