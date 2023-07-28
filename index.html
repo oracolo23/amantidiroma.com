@@ -13,63 +13,125 @@
   <header>
     <div class="navigation-bar">
 
-<div class="burger">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-<nav class="nav-logo">
-  <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo" class="logo"></a>
-</nav>
-<nav class="nav-buttons">
-  <a href="index.html"><i class="fas fa-home"></i> Home</a>
-  <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
-  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-  <a href="bookings.html"><i class="far fa-calendar-check"></i> Bookings</a> 
-</nav>
-</div>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="nav-logo">
+        <a href="index.html" class="logo-container"><img src="pics/logos/logo_trasnparent.png" alt="Logo"
+            class="logo"></a>
+      </nav>
+      <nav class="nav-buttons">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="bookings.html"><i class="far fa-calendar-check"></i> Bookings</a>
+      </nav>
+    </div>
 
-</header>
+  </header>
 
-<div class="container">
-  <div class="center">
-    <h1>
-      <span style="
-              font-size: 40px;
+  <div class="container">
+    <div class="container-home-title">
+      <h1>
+        <span style="
+              font-size: 2.2em;
               font-weight: bolder;
               text-transform: uppercase;
             ">Amanti <br />Di <br />Roma</span>
-      <br />Bed &amp; Breakfast
-    </h1>
-    <p>
-      Experience the serenity of Rome's countryside and the convenience of
-      direct connections to the city center.
-    </p>
+        <br /><br />Bed &amp; Breakfast
+      </h1>
+      <p>
+        Experience the serenity of Rome's countryside and the convenience of
+        direct connections to the city center.
+      </p>
+    </div>
   </div>
-</div>
 
-<div class="cta-container">
-  <p><a href="create_booking.html" class="cta-button">Make a Reservation</a></p>
-</div>
+  <div class="cta-container">
+    <p><a href="create_booking.html" class="cta-button">Make a Reservation</a></p>
+  </div>
 
-<div class="grid-container">
-  <img src="pics/room_4.jpg" alt="Placeholder Image 1" class="grid-item grid-item-2" />
-  <img src="pics/room_1.jpg" alt="Placeholder Image 2" class="grid-item grid-item-2" />
-  <img src="pics/room_3.jpg" alt="Placeholder Image 3" class="grid-item grid-item-2" />
-</div>
-<script>
-  var burger = document.querySelector('.burger');
-var nav = document.querySelector('.nav-buttons');
-var clickCount = 0;
+  <div class="grid-container">
+    <div class="grid-row first-row">
+      <div class="child-div">
+        <div class="image-container">
+          <img src="pics/room_4.jpg" alt="Placeholder Image 1" />
+        </div>
+        <div class="text-container">
+          <div>
+            <h1>Test Title</h1>
+            <p>
+              Cupcake ipsum dolor sit amet sweet roll. <br />
+              Cake wafer marshmallow candy canes muffin apple pie jelly.
+              Chocolate bar jujubes cake candy canes chupa chups.<br />
+              Jelly sweet I love. Gingerbread I love I love gummies tootsie roll sweet roll dessert.
+              Cheesecake I love candy canes icing I love. <br />Dessert icing gummi bears marzipan sweet roll. Danish
+              brownie chocolate cake sweet tootsie roll jujubes I love sugar plum.
+            <p>
+          </div>
+        </div>
 
-burger.addEventListener('click', function () {
-  clickCount += 1;
-  console.log('Click event is fired ' + clickCount + ' times.');
-  nav.classList.toggle('nav-active');
-});
-</script>
-<footer>
-  <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
-</footer>
+
+      </div>
+
+    </div>
+    <div class="grid-row">
+      <div class="child-div">
+        <div class="text-container">
+          <div>
+            <h1>Test Title</h1>
+            <p>
+              Cupcake ipsum dolor sit amet sweet roll. <br />
+              Cake wafer marshmallow candy canes muffin apple pie jelly.
+              Chocolate bar jujubes cake candy canes chupa chups.<br />
+              Jelly sweet I love. Gingerbread I love I love gummies tootsie roll sweet roll dessert.
+              Cheesecake I love candy canes icing I love. <br />Dessert icing gummi bears marzipan sweet roll. Danish
+              brownie chocolate cake sweet tootsie roll jujubes I love sugar plum.
+            <p>
+          </div>
+        </div>
+        <div class="image-container">
+          <img src="pics/room_1.jpg" alt="Placeholder Image 1" />
+        </div>
+      </div>
+    </div>
+    <div class="grid-row last-row">
+      <div class="child-div">
+        <div class="image-container">
+          <img src="pics/room_3.jpg" alt="Placeholder Image 1" />
+        </div>
+        <div class="text-container">
+          <div>
+            <h1>Test Title</h1>
+            <p>
+              Cupcake ipsum dolor sit amet sweet roll. <br />
+              Cake wafer marshmallow candy canes muffin apple pie jelly.
+              Chocolate bar jujubes cake candy canes chupa chups.<br />
+              Jelly sweet I love. Gingerbread I love I love gummies tootsie roll sweet roll dessert.
+              Cheesecake I love candy canes icing I love. <br />Dessert icing gummi bears marzipan sweet roll. Danish
+              brownie chocolate cake sweet tootsie roll jujubes I love sugar plum.
+            <p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('.nav-buttons');
+    var clickCount = 0;
+
+    burger.addEventListener('click', function () {
+      clickCount += 1;
+      console.log('Click event is fired ' + clickCount + ' times.');
+      nav.classList.toggle('nav-active');
+    });
+  </script>
+  <footer>
+    <p>&copy; 2023 Amanti di Roma. All rights reserved.</p>
+  </footer>
 </body>
