@@ -24,6 +24,9 @@ body {
 .child-div {
   display: flex;
   background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
 }
 .cta-container {
   width: 90%;
@@ -57,9 +60,7 @@ body {
 }
 .cta-button:hover {
   background-color: #E5EBAD;
-
 }
-
 input:focus, select:focus, textarea:focus{
   border: 15px solid #E5EBAD;
   outline: none;
@@ -204,7 +205,7 @@ color: white;
   margin: auto;
   display: grid;
   gap: 5%;
-  margin-bottom: 20%;
+  margin-bottom: 400px;
 }
 
 .grid-row {
@@ -218,26 +219,25 @@ color: white;
   justify-content: center;
   align-items: center;
   flex: 1;
-  padding: 10px;
-  max-width: 50%;
+  max-width: 700px;
   margin: 0 20px;
 }
 .image-container img {
   width: fit-content;
-  border-radius: 10px;
-  max-width: 400px;
+  max-width: 450px;
+  height: fit-content;
+  max-height: 520px;
 }
 .text-container {
   flex: 1;
   padding: 10px;
-  margin:  30px auto;
   text-align: center;
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 20px;
 }
 .text-container p {
   text-align: justify;
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.5em;
 }
 
@@ -487,19 +487,11 @@ color: white;
 
 /* Media Queries */
 
-@media only screen and (max-width: 1440px) {
-  .booking-container {
-    max-width: 90%;
-  }
-  .container-bookings-title h1   {
-    font-size: 3em; /* adjust as needed */
-  }
-  .booking-container h2 {
-    font-size: 1.5em; /* adjust as needed */
-  }
-  
-}
+
 @media only screen and (min-width: 1440px) {
+  .container{
+    max-width: 1000px;
+  }
   .container-rooms-title {
     margin-left: auto;
     margin-right: auto;
@@ -512,18 +504,30 @@ color: white;
     font-size: 2em; /* adjust as needed */
   }
 
-  .child-div {
 
-    margin-left: auto;
-    margin-right: auto;
-  }
   .parent-div {
     margin-left: auto;
     margin-right: auto;
   }
+  .grid-container .child-div{
+    width: 70%;
+  }
   .nav-buttons a {
     font-size: 1.05em;
   }
+}
+@media only screen and (max-width: 1440px) {
+  .booking-container {
+    max-width: 90%;
+  }
+  .container-bookings-title h1   {
+    font-size: 3em; /* adjust as needed */
+  }
+  .booking-container h2 {
+    font-size: 1.5em; /* adjust as needed */
+  }
+  
+  
 }
 @media only screen and (max-width: 1300px) {
   .nav-buttons a {
@@ -598,6 +602,9 @@ color: white;
   .nav-buttons a {
     font-size: 0.8em;
     margin: 0 4px;
+  }
+  .grid-container{
+    margin-bottom: 50%;
   }
   .grid-row .child-div{
     flex-direction: column;
@@ -828,6 +835,15 @@ color: white;
   }
 }
 @media screen and (max-width: 500px) {
+  .grid-container{
+    margin-bottom: 350px;
+  }
+  .text-container h1{
+    font-size: 1.5em;
+  }
+  .text-container p {
+    font-size: 1em;
+  }
   .nav-buttons a {
     margin: 0 10px;
     padding: 7px;
@@ -846,6 +862,9 @@ color: white;
 
   .booking-container {
     max-width: 100%;
+  }
+  .grid-container{
+    margin-bottom: 400px;
   }
 
 
