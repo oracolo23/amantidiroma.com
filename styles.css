@@ -222,7 +222,7 @@ nav {
   width: fit-content;
   max-width: 450px;
   height: fit-content;
-  max-height: 520px;
+  max-height: 450px;
 }
 .text-container {
   flex: 1;
