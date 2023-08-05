@@ -33,12 +33,15 @@
 
 </header>
 
+  <div class="parent-div">
 
-<main>
-  <!-- About Us Page -->
+    <!-- About Us Page -->
   <section id="about">
     <!-- About Us section content here -->
-    <h2>About Us</h2>
+    <div class="container-about-title">
+      <h2>About Us</h2>
+    </div>
+    
     <p>
       Welcome to our hotel! We pride ourselves on providing exceptional
       hospitality and creating memorable experiences for our guests.
@@ -69,17 +72,18 @@
       where every guest is treated like family.
     </p>
   </section>
-</main>
+  </div>
+  
+
 <script>
   var burger = document.querySelector('.burger');
-var nav = document.querySelector('.nav-buttons');
-var clickCount = 0;
+  var nav = document.querySelector('.nav-buttons');
+  var clickCount = 0;
 
-burger.addEventListener('click', function () {
-  clickCount += 1;
-  console.log('Click event is fired ' + clickCount + ' times.');
-  nav.classList.toggle('nav-active');
-});
+  burger.addEventListener('click', function () {
+
+    nav.classList.toggle('nav-active');
+  });
 </script>
 
 <footer>
